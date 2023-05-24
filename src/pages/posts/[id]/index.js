@@ -1,8 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import axios from 'axios';
 import SinglePost from '@/components/SinglePost';
-
+import { AuthContext } from '@/pages/context';
+import Login from '@/components/Login';
 export default function Post({ post }) {
+
+    const {auth} = useContext(AuthContext);
+    
+    if(!auth){
+        return <Login/>
+    }
+  
   return <SinglePost post={post} />;
 }
 
