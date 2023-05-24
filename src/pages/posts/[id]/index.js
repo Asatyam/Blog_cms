@@ -13,7 +13,6 @@ export default function Post({ post }) {
      useEffect(() => {
 
        const user = localStorage.getItem('user');
-       console.log(user);
        if (!user) {
          setAuth(false);
        } else {

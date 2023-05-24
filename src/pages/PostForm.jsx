@@ -18,8 +18,7 @@ export default function PostForm(){
 
 
     const condition = typeof post ==='undefined' || post===null || false;
-    console.log(post);
-    console.log(condition);
+ 
     const temp1 = condition? '' : post.title;
     const temp2 = condition? "" : post.content;
     const [title,setTitle] = useState(temp1);
@@ -30,7 +29,6 @@ export default function PostForm(){
 
   useEffect(()=>{
      const  user = localStorage.getItem('user');
-     console.log(user);
       if (!user) {
         setAuth(false);
       }

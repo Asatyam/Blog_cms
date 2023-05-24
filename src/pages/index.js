@@ -18,7 +18,6 @@ export default function Home({posts}) {
 
   useEffect(()=>{
      const  user = localStorage.getItem('user');
-     console.log(user);
       if (!user) {
         setAuth(false);
         
