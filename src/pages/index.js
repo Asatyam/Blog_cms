@@ -14,7 +14,6 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home({posts}) {
 
   const {auth,setAuth} = useContext(AuthContext);
-   const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
      const  user = localStorage.getItem('user');
@@ -28,9 +27,6 @@ export default function Home({posts}) {
       }
   },[auth,setAuth])
   
-  if (loading) {
-    return <LoadingScreen />;
-  }
 
   if (!auth) {
     return <Login/>;
