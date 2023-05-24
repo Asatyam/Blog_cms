@@ -10,12 +10,12 @@ import { useSearchParams } from 'next/navigation';
 export default function PostForm(){
 
 
+
     const router = useRouter();
     const searchParams = useSearchParams();
     const x = searchParams.get('post');
     const post = JSON.parse(x);
 
-    const {auth} =useContext(AuthContext);
 
     const condition = typeof post ==='undefined' || post===null || false;
     console.log(post);
@@ -25,6 +25,23 @@ export default function PostForm(){
     const [title,setTitle] = useState(temp1);
     const [content, setContent] = useState(temp2);
 
+    const {auth,setAuth} = useContext(AuthContext);
+
+  useEffect(()=>{
+     const  user = localStorage.getItem('user');
+     console.log(user);
+      if (!user) {
+        setAuth(false);
+      }
+      else{
+        setAuth(true);
+      }
+  },[auth,setAuth])
+  
+
+  if (!auth) {
+    return <Login/>;
+  }
 
     const handleSubmit = (e)=>{
         e.preventDefault();
