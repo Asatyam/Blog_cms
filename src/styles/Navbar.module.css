@@ -1,8 +1,9 @@
 .nav{
-    text-align: end;
+    display: flex;
+    justify-content: space-between;
     padding: 20px;
     background-color: aqua;
-    align-self: center;
+    align-items: center;
 }
 .nav button {
     padding: 5px 10px;

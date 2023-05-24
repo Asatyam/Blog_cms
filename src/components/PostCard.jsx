@@ -20,9 +20,12 @@ export default function PostCard({post}){
                 headers: {Authorization: `Bearer ${token}`}
            }
            axios.delete(`http://localhost:4000/api/posts/${post._id}`,config)
-           .then(console.log)
+           .then((res)=>{
+            console.log(res);
+             location.reload();
+           })
            .catch(console.log);
-            location.reload();
+           
         }
         
     }
