@@ -6,7 +6,7 @@ import styles from "../styles/PostForm.module.css"
 import Login from "@/components/Login";
 import axios from "axios";
 import { useSearchParams } from 'next/navigation';
-
+import { LoadingScreen } from "@/components/LoadingScreen";
 export default function PostForm(){
 
 
@@ -26,6 +26,7 @@ export default function PostForm(){
     const [content, setContent] = useState(temp2);
 
     const {auth,setAuth} = useContext(AuthContext);
+    const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
      const  user = localStorage.getItem('user');
@@ -35,10 +36,14 @@ export default function PostForm(){
       }
       else{
         setAuth(true);
+        setLoading(false);
       }
-  },[auth,setAuth])
+  },[auth,setAuth,loading])
   
 
+  if (loading) {
+    return <LoadingScreen />;
+  }
   if (!auth) {
     return <Login/>;
   }
