@@ -17,9 +17,10 @@ export default function Navbar(){
     }
     return(
         <nav className={styles.nav}>
-           <button>
-            <Link href="/PostForm">New Post</Link>
-            </button> 
+           <Link href="/"><button>Home</button></Link> 
+         
+            <Link href="/PostForm">  <button>New Post</button></Link>
+             
             <button onClick={handleClick}>
                 Logout
             </button>
