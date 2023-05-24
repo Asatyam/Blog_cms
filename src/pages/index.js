@@ -23,7 +23,6 @@ export default function Home({posts}) {
       }
       else{
         setAuth(true);
-        setLoading(false);
       }
   },[auth,setAuth])
   
