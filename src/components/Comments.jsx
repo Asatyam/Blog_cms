@@ -8,7 +8,7 @@ export default function Comments({id}){
     const [comments, setComments] = useState([]);
 
     useEffect(()=>{
-        axios.get(`http://localhost:4000/api/posts/${id}/comments`)
+        axios.get(`https://blogapi-asatyam.onrender.com/api/posts/${id}/comments`)
         .then((res)=>{
             setComments(res.data);
         })

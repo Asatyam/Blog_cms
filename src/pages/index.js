@@ -45,7 +45,7 @@ export default function Home({posts}) {
   );
 }
 export async function getServerSideProps(){
-  const res = await axios.get('http://localhost:4000/api/posts')
+  const res = await axios.get('https://blogapi-asatyam.onrender.com/api/posts');
   const posts = res.data;
 
   return {props:{posts} }

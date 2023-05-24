@@ -61,7 +61,7 @@ export default function PostForm(){
            }
 
             if(condition){
-        axios.post("http://localhost:4000/api/posts",{title,content},config)
+        axios.post("https://blogapi-asatyam.onrender.com/api/posts",{title,content},config)
         .then((res)=>{
             console.log(res);
             router.push('/');
@@ -69,7 +69,7 @@ export default function PostForm(){
         .catch(console.log)
         }
         else{
-            axios.put(`http://localhost:4000/api/posts/${post._id}`,{title,content},config)
+            axios.put(`https://blogapi-asatyam.onrender.com/api/posts/${post._id}`,{title,content},config)
         .then((res)=>{
             console.log(res);
             router.push('/');

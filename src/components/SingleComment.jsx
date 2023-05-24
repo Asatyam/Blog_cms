@@ -20,7 +20,7 @@ export default function SingleComment({comment,postid}){
            const config = {
                 headers: {Authorization: `Bearer ${token}`}
            }
-           axios.delete(`http://localhost:4000/api/posts/${postid}/comments/${comment._id}`,config)
+           axios.delete(`https://blogapi-asatyam.onrender.com/api/posts/${postid}/comments/${comment._id}`,config)
            .then((res)=>{
             console.log(res);
            })

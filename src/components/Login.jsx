@@ -13,7 +13,7 @@ export default function Login(){
         e.preventDefault();
 
         const body = {username, password};
-        axios.post("http://localhost:4000/api/login",body)
+        axios.post("https://blogapi-asatyam.onrender.com/api/login",body)
         .then((res)=>{
             localStorage.setItem('user',JSON.stringify(res.data.body.username));
             localStorage.setItem('token',JSON.stringify(res.data.token));

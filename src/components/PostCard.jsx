@@ -19,7 +19,7 @@ export default function PostCard({post}){
            const config = {
                 headers: {Authorization: `Bearer ${token}`}
            }
-           axios.delete(`http://localhost:4000/api/posts/${post._id}`,config)
+           axios.delete(`https://blogapi-asatyam.onrender.com/api/posts/${post._id}`,config)
            .then((res)=>{
             console.log(res);
            })
