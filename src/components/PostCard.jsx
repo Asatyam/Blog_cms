@@ -52,6 +52,9 @@ export default function PostCard({post}){
             <button className={styles.delete} onClick = {deletePost}>
                 Delete
             </button>
+            <Link href={{ pathname: '/PostForm', query: { post: JSON.stringify(post) } }}>
+                <button className={styles.update}>Update</button>
+            </Link>
         </div>
     )
 }
