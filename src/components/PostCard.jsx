@@ -22,7 +22,6 @@ export default function PostCard({post}){
            axios.delete(`http://localhost:4000/api/posts/${post._id}`,config)
            .then((res)=>{
             console.log(res);
-             location.reload();
            })
            .catch(console.log);
            

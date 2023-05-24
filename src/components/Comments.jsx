@@ -25,7 +25,7 @@ export default function Comments({id}){
     return (
         <div className={styles.comments}>
 
-            {comments.map((comment)=> <SingleComment key= {comment._id} comment={comment}/>)}
+            {comments.map((comment)=> <SingleComment key= {comment._id} comment={comment} postid = {id}/>)}
         </div>
     )
 

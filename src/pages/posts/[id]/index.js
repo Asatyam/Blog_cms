@@ -5,12 +5,21 @@ import { AuthContext } from '@/pages/context';
 import Login from '@/components/Login';
 export default function Post({ post }) {
 
-    const {auth} = useContext(AuthContext);
+    const {auth,setAuth} = useContext(AuthContext);
     
-    if(!auth){
-        return <Login/>
-    }
-  
+     useEffect(() => {
+       const user = localStorage.getItem('user');
+       console.log(user);
+       if (!user) {
+         setAuth(false);
+       } else {
+         setAuth(true);
+       }
+     }, [auth, setAuth]);
+
+     if (!auth) {
+       return <Login />;
+     }
   return <SinglePost post={post} />;
 }
 
