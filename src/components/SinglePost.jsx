@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../styles/SinglePost.module.css"
-
+import Comments from "./Comments";
 export default function SinglePost({post}){
 
     return (
@@ -16,6 +16,10 @@ export default function SinglePost({post}){
             <div className={styles.content}>
                     {post.content}
                     
+            </div>
+             <div className={styles.comments}>
+                    <h3>Comments</h3>
+                    <Comments id = {post._id}/>
             </div>
             
         </div>

@@ -1,0 +1,23 @@
+.comment-card {
+    background-color: #e0f2fe;
+    padding: 20px;
+    font-size: 1.1rem;
+    display: flex;
+    font-weight: lighter;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+
+.comment-card p:first-child {
+    text-align: start;
+    font-weight: bold;
+}
+
+.comment-card p:last-child {
+    text-align: end;
+    font-weight: bold;
+}
