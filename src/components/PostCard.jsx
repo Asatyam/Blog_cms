@@ -4,7 +4,28 @@ import Link from "next/link";
 import { AuthContext } from "@/pages/context";
 import { useContext } from "react";
 import Login from "./Login";
+import axios from "axios";
 export default function PostCard({post}){
+
+    const deletePost = (e)=>{
+
+        const ans  = confirm("Are you sure you want to delete this post\n" + post.title);
+        if(ans)
+        {
+            const token = JSON.parse(localStorage.getItem('token'));
+            if(!token){
+                alert("You are not authorized");
+            }
+           const config = {
+                headers: {Authorization: `Bearer ${token}`}
+           }
+           axios.delete(`http://localhost:4000/api/posts/${post._id}`,config)
+           .then(console.log)
+           .catch(console.log);
+            location.reload();
+        }
+        
+    }
 
     const {auth} = useContext(AuthContext);
     if(!auth){
@@ -25,6 +46,9 @@ export default function PostCard({post}){
             <div className={styles.date}>
                 {post.date}
             </div>
+            <button className={styles.delete} onClick = {deletePost}>
+                Delete
+            </button>
         </div>
     )
 }
