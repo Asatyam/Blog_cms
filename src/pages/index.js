@@ -3,15 +3,17 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Login from '@/components/Login'
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
 import axios from 'axios'
 import PostCard from '@/components/PostCard'
+import { AuthContext } from './context'
 
 const inter = Inter({ subsets: ['latin'] })
 
+
 export default function Home({posts}) {
 
-  const [auth, setAuth] = useState(false);
+  const {auth,setAuth} = useContext(AuthContext);
 
   useEffect(()=>{
      const  user = localStorage.getItem('user');
@@ -22,11 +24,11 @@ export default function Home({posts}) {
       else{
         setAuth(true);
       }
-  },[auth])
+  },[auth,setAuth])
   
 
   if (!auth) {
-    return <Login setAuth={setAuth} />;
+    return <Login/>;
   }
 
   return (

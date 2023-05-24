@@ -1,12 +1,14 @@
 import React from "react";
-import { useState } from "react";
+import { useState,useContext } from "react";
+import { AuthContext } from "@/pages/context";
 import axios from "axios";
 import styles from '../styles/Login.module.css'
-export default function Login({setAuth}){
+export default function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const {auth,setAuth} = useContext(AuthContext);
     const handleSubmit = (e)=>{
         e.preventDefault();
 

@@ -1,8 +1,15 @@
 import React from "react";
 import styles from "../styles/PostCard.module.css"
 import Link from "next/link";
+import { AuthContext } from "@/pages/context";
+import { useContext } from "react";
+import Login from "./Login";
 export default function PostCard({post}){
 
+    const {auth} = useContext(AuthContext);
+    if(!auth){
+        return <Login/>
+    }
     
     return(
        
